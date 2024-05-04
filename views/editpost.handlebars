@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="card">
+        <form class="form edit-post-form">
+            <div class="form-group">
+                <label for="post-title" class="form-label">Title:</label> </label>
+                <input class="form-input form-control" type="text" id="post-title" value="{{post.title}}"/>
+            </div>
+            <div class="form-group">
+                <label for="post-content" class="form-label">Post Text: </label>
+                <textarea class="form-input form-control" type="text" max-length="250" id="post-content">{{post.content}}</textarea>
+            </div>
+            </br>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Post</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/editPost.js"></script>
