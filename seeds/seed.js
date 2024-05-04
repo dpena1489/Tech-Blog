@@ -14,8 +14,7 @@ const seedDatabase = async () => {
   });
 
   for (const post of postData) {
-    await Post.create({post
-    });
+    await Post.create(post);
   }
 
   process.exit(0);
