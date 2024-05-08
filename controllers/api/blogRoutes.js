@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     });
 });
 
-//Adding a comment
+//Add a comment
 router.post('/', async (req, res)=>{
     try{
         const userData = await Comment.create({

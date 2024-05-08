@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   });
 });
 
-//Add Post
+//Adding a Post
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
@@ -23,7 +23,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-//Delete post
+//Deleting a post
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({
@@ -44,7 +44,7 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-//Update Post
+//Updating a Post
 
 router.put('/edit/:id', withAuth, async (req, res) => {
   try {
