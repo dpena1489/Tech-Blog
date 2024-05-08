@@ -1,14 +1,54 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-md-2">
+<div class="card">
+  <div class="card-header">
+   {{post.title}} by {{post.user.username}} on {{post.date_created}}
+  </div>
+  <div class="card-body">
+    <p class="card-text" author="{{post.user_id}}">{{post.content}}</p>
+    <p> <form class="form del-post-form"><button type="submit" data-id="{{post.id}}">Delete Post</button></form>
+    <form action="/edit/{{post.id}}" class="nav-link active"><button type="submit">Edit Post</button></form></p>
+  </div>
 </div>
+
+{{#each post.comments as |comment|}}
+<div class="card">
+  <div class="card-header">
+   comment by {{comment.user.username}} on {{comment.date_created}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{comment.content}}</p>
+  </div>
+</div>
+
+{{/each}}
+
+
+<div class="card">
+  <div class="card-header">
+ Add a comment
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <form class="form new-comment-form">
+    <div class="form-group">
+         <label for="comment-content" class="form-label">Comment: </label>
+        <textarea class="form-input form-control" type="text" max-length="250" id="comment-content"></textarea>
+    </div>
+    </br>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit" data-id="{{post.id}}" id="post-comment">Post Comment</button>
+    </div>
+</form>
+    </p>
+  </div>
+</div>
+
+
+</div>
+</div> 
+</div>
+
+<script src="/js/comment.js"></script>
+<script src="/js/deletePost.js"></script>
